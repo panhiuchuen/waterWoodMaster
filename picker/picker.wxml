@@ -1,0 +1,56 @@
+<import src="../common/head.wxml" />
+<import src="../common/foot.wxml" />
+
+<view class="container">
+  <template is="" data="{{title: 'picker'}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells__title">请输入出生日期和时辰：</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">新/农历：</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="weui-input">{{array[index]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+  <view class="weui-cells__title"></view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">出生日期：</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+              <view class="weui-input">{{date}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cells__title"></view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">出生时辰：</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+              <view class="weui-input">{{time}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    <view class="weui-cells__title">提示：出生时辰尤为重要，请确保输入的出生日期和时辰正确，不清楚出生时辰的同学请咨询家人</view>
+    <button class="button-sp-area" type="primary" plain="true" bindtap="calulateData">算八字</button>
+    </view>
+  </view>
+
+  <template is="" />
+</view>
