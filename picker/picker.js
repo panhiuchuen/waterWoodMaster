@@ -1,16 +1,30 @@
 Page({
   data: {
-    array: ['农历', '新历'],
-    index: 0,
+    newOldDate : 'oldDate',
+    gender : 'female',
     date: '2016-09-01',
-    time: '12:01'
+    time: '12:01',
+
+    itemsDate: [
+      {name: 'newDate', value: '新历'},
+      {name: 'oldDate', value: '农历', checked: 'true'},
+    ],
+    itemsGender: [
+      {name: 'male', value: '男性'},
+      {name: 'female', value: '女性', checked: 'true'},
+    ]
+
   },
-  bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      index: e.detail.value
-    })
-  },
+radioGenderChange:function(e){
+  this.setData({
+    gender:e.detail.value
+  })
+},
+radioNewOldDateChange:function(e){
+  this.setData({
+    newOldDate:e.detail.value
+  })
+},
   bindDateChange: function(e) {
     this.setData({
       date: e.detail.value
@@ -24,14 +38,14 @@ Page({
 
   calulateData : function( e ){
     wx.navigateTo({
-      url: '../text/text',
+      url: '../text/text?newOldDate='+this.data.newOldDate +'&date='+ this.data.date +'&time='+this.data.time+'&gender='+this.data.gender,
       success: function(res){
         // success
-        console.log(res)
+        //console.log(res)
       },
       fail: function(res) {
         // fail
-        console.log(res)
+       // console.log(res)
       },
       complete: function(res) {
         // complete

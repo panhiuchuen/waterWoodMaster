@@ -1030,3 +1030,10 @@ icon {
   color: #09BB07;
   white-space: nowrap;
 }
+
+
+.red-label {
+ 
+  color: red;
+}
+
